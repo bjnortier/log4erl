@@ -23,9 +23,11 @@ parse(Tokens) ->
 	    throw({parser_error, Line, EMsg})
     end.
 
-conf(File) ->
-    application:start(log4erl),
+conf({file, File}) ->
     Tree = parse(leex(File)),
+    conf({tree, Tree});
+
+conf({tree, Tree}) ->
     traverse(Tree).
 
 traverse([]) ->

@@ -97,8 +97,11 @@ get_appenders() ->
 get_appenders(Logger) ->
     try_msg({get_appenders, Logger}).
 
-conf(File) ->
-    log4erl_conf:conf(File).
+conf({file, File}) ->
+    log4erl_conf:conf({file, File});
+conf({tree, Tree}) ->
+    log4erl_conf:conf({tree, Tree}).
+
 
 change_format(Appender, Format) ->
     try_msg({change_format, ?DEFAULT_LOGGER, Appender, Format}).

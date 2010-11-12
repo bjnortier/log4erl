@@ -59,8 +59,8 @@ $> erl -pz /path/to/log4erl ...
 you need to run:
 > application:start(log4erl).
 
-3- Create a configuration file and load it using log4erl:conf(File)
-> log4erl:conf("priv/log4erl.conf").
+3- Create a configuration file and load it using log4erl:conf({file, File})
+> log4erl:conf({file, "priv/log4erl.conf"}).
 
 4- Alternatevly, you can create loggers & add appenders to them programmatically as appropriate. 
 You can do this as per the API below.
